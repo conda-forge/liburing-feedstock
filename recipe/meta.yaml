@@ -10,7 +10,7 @@ source:
 
 build:
   number: 0
-  skip: true  # [not linux]
+  skip: true  # [not unix]
   run_exports:
     - {{ pin_subpackage('liburing', max_pin='x.x') }}
 
