@@ -9,7 +9,7 @@ source:
   sha256: 456f5f882165630f0dc7b75e8fd53bd01a955d5d4720729b4323097e6e9f2a98
 
 build:
-  number: 0
+  number: 1
   skip: true  # [not unix]
   run_exports:
     - {{ pin_subpackage('liburing', max_pin='x.x') }}
