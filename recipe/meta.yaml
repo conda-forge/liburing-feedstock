@@ -1,4 +1,4 @@
-{% set version = "2.5" %}
+{% set version = "2.6" %}
 
 package:
   name: liburing
@@ -6,7 +6,7 @@ package:
 
 source:
   url: https://github.com/axboe/liburing/archive/liburing-{{ version }}.tar.gz
-  sha256: 456f5f882165630f0dc7b75e8fd53bd01a955d5d4720729b4323097e6e9f2a98
+  sha256: 682f06733e6db6402c1f904cbbe12b94942a49effc872c9e01db3d7b180917cc
 
 build:
   number: 0
@@ -17,6 +17,7 @@ build:
 requirements:
   build:
     - {{ compiler('cxx') }}
+    - {{ stdlib("c") }}
     - make
 
 test:
