@@ -1,4 +1,4 @@
-{% set version = "2.13" %}
+{% set version = "2.14" %}
 
 package:
   name: liburing
@@ -6,7 +6,7 @@ package:
 
 source:
   url: https://github.com/axboe/liburing/archive/liburing-{{ version }}.tar.gz
-  sha256: 618e34dbea408fc9e33d7c4babd746036dbdedf7fce2496b1178ced0f9b5b357
+  sha256: 5f80964108981c6ad979c735f0b4877d5f49914c2a062f8e88282f26bf61de0c
 
 build:
   number: 0
