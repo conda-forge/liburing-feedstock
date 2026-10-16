@@ -2,7 +2,7 @@
 
 package:
   name: liburing
-  version: {{ version }}
+  version: "{{ version }}"
 
 source:
   url: https://github.com/axboe/liburing/archive/liburing-{{ version }}.tar.gz
