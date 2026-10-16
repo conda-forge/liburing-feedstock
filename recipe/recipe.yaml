@@ -1,0 +1,50 @@
+schema_version: 1
+
+context:
+  version: "2.14"
+
+package:
+  name: liburing
+  version: ${{ version }}
+
+source:
+  url: https://github.com/axboe/liburing/archive/liburing-${{ version }}.tar.gz
+  sha256: 5f80964108981c6ad979c735f0b4877d5f49914c2a062f8e88282f26bf61de0c
+
+build:
+  number: 1
+  skip: not linux
+
+requirements:
+  build:
+    - ${{ compiler('cxx') }}
+    - ${{ stdlib("c") }}
+    - make
+  run_exports:
+    - ${{ pin_subpackage('liburing', upper_bound='x.x') }}
+
+tests:
+  - script:
+      - test -f "$PREFIX/include/liburing.h"
+      - test ! -f "$PREFIX/lib/liburing.a"
+      - test -f "$PREFIX/lib/liburing.so"
+      - test -f "$PREFIX/lib/pkgconfig/liburing.pc"
+      - test ! -f "$PREFIX/lib/liburing-ffi.a"
+      - test -f "$PREFIX/lib/liburing-ffi.so"
+      - test -f "$PREFIX/lib/pkgconfig/liburing-ffi.pc"
+
+about:
+  license: MIT
+  license_file: LICENSE
+  summary: Efficient IO with io_uring
+  description: |
+    liburing provides helpers to setup and teardown io_uring instances, and
+    also a simplified interface for applications that don't need (or want) to
+    deal with the full kernel side implementation.
+  homepage: https://github.com/axboe/liburing
+  repository: https://github.com/axboe/liburing
+  documentation: https://kernel.dk/io_uring.pdf
+
+extra:
+  recipe-maintainers:
+    - davidbrochart

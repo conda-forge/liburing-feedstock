@@ -17,7 +17,6 @@ liburing provides helpers to setup and teardown io_uring instances, and
 also a simplified interface for applications that don't need (or want) to
 deal with the full kernel side implementation.
 
-
 Current build status
 ====================
 
